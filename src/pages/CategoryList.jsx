@@ -17,11 +17,11 @@ const subCategories = [
   { name: "Laptop Sleeves", to: "#" },
 ];
 
-function loader({request : {signal}}) {
-  return getCategories({signal})
-}
+// function loader({request : {signal}}) {
+//   return getCategories({signal})
+// }
 
-function CategoryList() {
+export function CategoryList() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const Categories = useLoaderData();
   console.log(Categories);
@@ -163,7 +163,7 @@ function CategoryList() {
   );
 }
 
-export const CategoryListRoute = {
-  loader,
-  element: <CategoryList />
-}
+// export const CategoryListRoute = {
+//   loader,
+//   element: <CategoryList />
+// }
