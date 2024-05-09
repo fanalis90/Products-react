@@ -5,6 +5,7 @@ export async function getProducts(option){
     return res.data;
 }
 export async function getProduct(productId, option){
+      console.log(productId);
     const res = await baseApi.get(`/${productId}`, option);
     return res.data;
 }

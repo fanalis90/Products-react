@@ -24,7 +24,7 @@ import { Link, Outlet, useLoaderData } from "react-router-dom";
 export function CategoryList() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const Categories = useLoaderData();
-  console.log(Categories);
+
   return (
     <div className="bg-white">
       <div>
@@ -78,10 +78,10 @@ export function CategoryList() {
                       role="list"
                       className="px-2 py-3 font-medium text-gray-900"
                     >
-                      {Categories.map((category) => (
-                        <li key={category.name}>
-                          <Link to={category.to} className="block px-2 py-3">
-                            {category.name}
+                      {Categories.map((category,index) => (
+                        <li key={index}>
+                          <Link to={category} className="block px-2 py-3">
+                            {category}
                           </Link>
                         </li>
                       ))}
@@ -143,8 +143,8 @@ export function CategoryList() {
                   role="list"
                   className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
                 >
-                  {Categories.map((category) => (
-                    <li key={category}>
+                  {Categories.map((category, index) => (
+                    <li key={index}>
                       <Link to={category}>{category}</Link>
                     </li>
                   ))}

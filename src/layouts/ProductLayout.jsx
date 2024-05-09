@@ -12,9 +12,7 @@ const loader = useLoaderData();
       setData(loader.products);
   }, [loader]);
 
-  console.log(loader)
-
-  
+ 
   const indexOfLastItems = currentPage * itemsPerPage;
   const indexOfFirstItems = indexOfLastItems - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItems, indexOfLastItems);

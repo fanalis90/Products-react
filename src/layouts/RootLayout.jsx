@@ -2,7 +2,6 @@ import { Popover } from "@headlessui/react";
 import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
-import { useRef, useState} from "react";
 import { Form, Link, Outlet } from "react-router-dom";
 // import { searchProduct } from "../data/products";
 
@@ -15,8 +14,6 @@ const navigation = {
 
 
 export default function RootLayout() {
-  
-  const searchInput = useRef("");
   return (
     <div className="bg-white">
       <header className="relative bg-white">
@@ -63,27 +60,11 @@ export default function RootLayout() {
                     placeholder="Cari"
                   />
                 </div>
-                <button className="mx-2">
+                <button type="submit" className="mx-2">
                   <span className="sr-only">Search</span>
                   <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
               </Form>
-
-              {/* <div
-                  className="flex lg:ml-6"
-                  // onClick={() => setSearch(searchInput.current.value)}
-                >
-                  <Link
-                    to={`products?q=${search}`}
-                    className="p-2 text-gray-400 hover:text-gray-500"
-                  >
-                    <span className="sr-only">Search</span>
-                    <MagnifyingGlassIcon
-                      className="h-6 w-6"
-                      aria-hidden="true"
-                    />
-                  </Link> */}
-              {/* </div> */}
             </div>
           </div>
         </nav>
