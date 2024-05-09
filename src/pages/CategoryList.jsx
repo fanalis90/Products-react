@@ -7,15 +7,15 @@ import {
   FunnelIcon,
 } from "@heroicons/react/20/solid";
 import { Link, Outlet, useLoaderData } from "react-router-dom";
-import { getCategories } from "../data/categories";
 
-const subCategories = [
-  { name: "Totes", to: "#" },
-  { name: "Backpacks", to: "#" },
-  { name: "Travel Bags", to: "#" },
-  { name: "Hip Bags", to: "#" },
-  { name: "Laptop Sleeves", to: "#" },
-];
+
+// const subCategories = [
+//   { name: "Totes", to: "#" },
+//   { name: "Backpacks", to: "#" },
+//   { name: "Travel Bags", to: "#" },
+//   { name: "Hip Bags", to: "#" },
+//   { name: "Laptop Sleeves", to: "#" },
+// ];
 
 // function loader({request : {signal}}) {
 //   return getCategories({signal})
@@ -78,7 +78,7 @@ export function CategoryList() {
                       role="list"
                       className="px-2 py-3 font-medium text-gray-900"
                     >
-                      {subCategories.map((category) => (
+                      {Categories.map((category) => (
                         <li key={category.name}>
                           <Link to={category.to} className="block px-2 py-3">
                             {category.name}

@@ -2,7 +2,9 @@ import { Popover } from "@headlessui/react";
 import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
-import { Link, Outlet } from "react-router-dom";
+import { useRef, useState} from "react";
+import { Form, Link, Outlet } from "react-router-dom";
+// import { searchProduct } from "../data/products";
 
 const navigation = {
   pages: [
@@ -12,8 +14,9 @@ const navigation = {
 };
 
 
-
 export default function RootLayout() {
+  
+  const searchInput = useRef("");
   return (
     <div className="bg-white">
       <header className="relative bg-white">
@@ -27,18 +30,13 @@ export default function RootLayout() {
               <div className="ml-4 flex lg:ml-0">
                 <Link to="#">
                   <span className="sr-only">Logo ku</span>
-                  <img
-                    className="h-8 w-auto"
-                    src="/vite.svg"
-                    alt=""
-                  />
+                  <img className="h-8 w-auto" src="/vite.svg" alt="" />
                 </Link>
               </div>
 
               {/* Flyout menus */}
               <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
                 <div className="flex h-full space-x-8">
-
                   {navigation.pages.map((page) => (
                     <Link
                       key={page.name}
@@ -51,24 +49,47 @@ export default function RootLayout() {
                 </div>
               </Popover.Group>
 
-              <div className="ml-auto flex items-center">
-                {/* Search */}
-                <div className="flex lg:ml-6">
-                  <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
+              <Form
+                className="ml-auto flex items-center"
+                action="/products/search"
+              >
+                <div>
+                  {/* Search */}{" "}
+                  <input
+                    type="text"
+                    name="query"
+                    id="search"
+                    className="block w-full rounded-full border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    placeholder="Cari"
+                  />
+                </div>
+                <button className="mx-2">
+                  <span className="sr-only">Search</span>
+                  <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
+              </Form>
+
+              {/* <div
+                  className="flex lg:ml-6"
+                  // onClick={() => setSearch(searchInput.current.value)}
+                >
+                  <Link
+                    to={`products?q=${search}`}
+                    className="p-2 text-gray-400 hover:text-gray-500"
+                  >
                     <span className="sr-only">Search</span>
                     <MagnifyingGlassIcon
                       className="h-6 w-6"
                       aria-hidden="true"
                     />
-                  </a>
-                </div>
-              </div>
+                  </Link> */}
+              {/* </div> */}
             </div>
           </div>
         </nav>
       </header>
       <div>
-        <Outlet/>
+        <Outlet />
       </div>
     </div>
   );

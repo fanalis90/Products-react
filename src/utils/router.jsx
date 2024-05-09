@@ -2,7 +2,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import RootLayout from "../layouts/RootLayout";
 import ErrorPage from "../pages/ErrorPage";
 import { CategoryList } from "../pages/CategoryList";
-import {  loaderProducts, productCategoriesLoader } from "../data/loaderProduct";
+import {  loaderProducts, productCategoriesLoader, searchProductLoader } from "../data/loaderProduct";
 import ProductLayout from "../layouts/ProductLayout";
 import { loaderCategories } from "../data/loaderCategories";
 
@@ -17,13 +17,15 @@ export const router = createBrowserRouter([
           { index: true, element: <Navigate to={"/products"} /> },
           {
             path: "products",
-            // element: <ProductLayout />,
             children: [
               {
                 index: true,
                 element: <ProductLayout />,
-                // element : <ProductList />,
                 loader: loaderProducts,
+              },
+              {path:"search",
+                element :<ProductLayout />,
+                loader: searchProductLoader
               },
               { path: ":productId" },
             ],
