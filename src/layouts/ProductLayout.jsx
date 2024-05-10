@@ -20,6 +20,7 @@ const loader = useLoaderData();
   return (
     <div className="container mt-5">
       <ProductList productt={currentItems} />
+      
       <Pagination
         nPages={nPages}
         currentPage={currentPage}

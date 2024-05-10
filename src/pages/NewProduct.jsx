@@ -16,7 +16,7 @@ function NewProduct() {
   const isSubmitting = state === "submitting";
   return (
     <>
-      <h1 className="page-title">New Post</h1>
+  
       <PostProductForm
         // product={product}
         isSubmitting={isSubmitting}
