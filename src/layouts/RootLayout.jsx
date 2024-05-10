@@ -1,7 +1,5 @@
 import { Popover } from "@headlessui/react";
-import {
-  MagnifyingGlassIcon,
-} from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Form, Link, Outlet } from "react-router-dom";
 // import { searchProduct } from "../data/products";
 
@@ -11,7 +9,6 @@ const navigation = {
     { name: "Categories", to: "categories" },
   ],
 };
-
 
 export default function RootLayout() {
   return (
@@ -25,7 +22,7 @@ export default function RootLayout() {
             <div className="flex h-16 items-center">
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <Link to="#">
+                <Link to="/">
                   <span className="sr-only">Logo ku</span>
                   <img className="h-8 w-auto" src="/vite.svg" alt="" />
                 </Link>
@@ -45,26 +42,49 @@ export default function RootLayout() {
                   ))}
                 </div>
               </Popover.Group>
-
-              <Form
-                className="ml-auto flex items-center"
-                action="/products/search"
-              >
-                <div>
-                  {/* Search */}{" "}
-                  <input
-                    type="text"
-                    name="query"
-                    id="search"
-                    className="block w-full rounded-full border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    placeholder="Cari"
-                  />
-                </div>
-                <button type="submit" className="mx-2">
-                  <span className="sr-only">Search</span>
-                  <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </Form>
+              <div className="ml-auto flex items-center gap-2">
+                <Link to="products/add">
+                  <button className="flex ml-auto bg-green-500 hover:bg-green-700 text-white font-bold py-1.5 px-4 rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                      />
+                    </svg>
+                    Create
+                  </button>
+                </Link>
+                <Form
+                  action="/products/search"
+                  className="ml-auto flex items-center"
+                >
+                  <div>
+                    {/* Search */}{" "}
+                    <input
+                      type="text"
+                      name="query"
+                      id="search"
+                      className="block w-full rounded-full border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      placeholder="Cari"
+                    />
+                  </div>
+                  <button type="submit" className="mx-2">
+                    <span className="sr-only">Search</span>
+                    <MagnifyingGlassIcon
+                      className="h-6 w-6"
+                      aria-hidden="true"
+                    />
+                  </button>
+                </Form>
+              </div>
             </div>
           </div>
         </nav>
